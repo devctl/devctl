@@ -14,7 +14,6 @@ if [ "${devctl_dir}" != "/opt/devctl" ]; then
 fi
 
 devctl() {
-
    case "$1" in
     load-dev)
       local devctl_path="$(devctl cd devctl && pwd)"
@@ -61,6 +60,7 @@ check_update(){
     git -C /opt/devctl reset --hard origin/master
   } >/dev/null 2>&1
   check_error $? "Update"
+  source "/opt/devctl/devctl.sh"
 }
 
 check_error(){
@@ -75,15 +75,20 @@ NC='\x1b[0m'
 GREEN='\x1b[32m'
 RED='\x1b[31m'
 BLUE='\x1b[94m'
+YELLOW='\x1b[33m'
 
 echo_success() {
-  echo -e "${GREEN}✓${NC} $1"
+  echo -e "${GREEN}✔ ${NC} $1"
 }
 
 echo_fail() {
-    echo -e "${RED}✗${NC} $1"
+    echo -e "${RED}✗ ${NC} $1"
 }
 
 echo_info() {
-    echo -e "${BLUE}☇${NC} $1"
+    echo -e "${BLUE}🐧 ${NC} $1"
+}
+
+echo_warning() {
+    echo -e "${YELLOW}⚠ ${NC} $1"
 }

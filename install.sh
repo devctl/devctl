@@ -29,7 +29,7 @@ clone_devctl() {
     */zsh)
       # Pretty much every zsh user just uses ~/.zshrc so we won't worry about
       # all that file detection stuff we do with bash.
-      install_shell_shim "/Users/${logged_in_user}/.zshrc"
+      install_shell_shim "~/.zshrc"
       ;;
     *)
       echo_fail "No :P"
@@ -55,17 +55,22 @@ NC='\x1b[0m'
 GREEN='\x1b[32m'
 RED='\x1b[31m'
 BLUE='\x1b[94m'
+YELLOW='\x1b[33m'
 
 echo_success() {
-  echo -e "${GREEN}✓${NC} $1"
+  echo -e "${GREEN}✔ ${NC} $1"
 }
 
 echo_fail() {
-    echo -e "${RED}✗${NC} $1"
+    echo -e "${RED}✗ ${NC} $1"
 }
 
 echo_info() {
-    echo -e "${BLUE}☇${NC} $1"
+    echo -e "${BLUE}🐧 ${NC} $1"
+}
+
+echo_warning() {
+    echo -e "${YELLOW}⚠ ${NC} $1"
 }
 
 clone_devctl
