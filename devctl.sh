@@ -16,7 +16,8 @@ fi
 devctl() {
    case "$1" in
     load-dev)
-      local devctl_path="$(devctl cd devctl && pwd)"
+      local devctl_path
+      devctl_path="$(devctl cd devctl && pwd)"
       # shellcheck disable=SC1090
       source "${devctl_path}/devctl.sh"
       echo_info "Loaded dev devctl"
@@ -44,7 +45,7 @@ devctl() {
 
   rm -f "${fd}"
 
-  eval "${run_command} ${devctl_dir}/${binary_file} $@" 8>"${fd}"
+  eval "${run_command} ${devctl_dir}/${binary_file} $*" 8>"${fd}"
 
   while read -r line
   do
@@ -57,9 +58,11 @@ devctl() {
 check_update(){
   echo_info "checking for updates"
   {
+    git -C /opt/devctl fetch
     git -C /opt/devctl reset --hard origin/master
   } >/dev/null 2>&1
   check_error $? "Update"
+  # shellcheck disable=SC1091
   source "/opt/devctl/devctl.sh"
 }
 
