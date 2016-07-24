@@ -3,7 +3,7 @@
 
 ## Installing
 ```
-curl https://raw.githubusercontent.com/devctl/devctl/master/install.sh | bash
+curl -o- https://raw.githubusercontent.com/devctl/devctl/master/install.sh | bash
 ```
 
 NOTE: currently only supports zsh
