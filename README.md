@@ -1,5 +1,5 @@
 # devctl
-[![Build Status](https://travis-ci.com/benjamincaldwell/devctl.svg?token=L1GtGC1ysbqS5qEjAzwk&branch=master)](https://travis-ci.com/benjamincaldwell/devctl)
+[![Build Status](https://circleci.com/gh/benjamincaldwell/devctl.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/benjamincaldwell/devctl)
 
 ## Installing
 ```
