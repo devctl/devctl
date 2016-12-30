@@ -1,5 +1,5 @@
 #!/bin/bash
-{
+
 website="https://devctl.github.io"
 install_location="/opt"
 
@@ -160,4 +160,4 @@ _devctl_check_version() {
     [[ "$winner" = "$installed" ]] && return 0
     return 1
 }
-}
+
