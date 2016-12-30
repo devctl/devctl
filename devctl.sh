@@ -1,6 +1,7 @@
 #!/bin/bash
-local website="https://devctl.github.io"
-local install_location="/opt"
+{
+website="https://devctl.github.io"
+install_location="/opt"
 
 devctl_dir="$(dirname "$0:A")"
 binary_file="devctl"
@@ -158,4 +159,5 @@ _devctl_check_version() {
     local winner=$(echo -e "${installed}\n${latest}" | sed '/^$/d' | sort -nr | head -1)
     [[ "$winner" = "$installed" ]] && return 0
     return 1
+}
 }
