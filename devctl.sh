@@ -118,7 +118,7 @@ _devctl_install_version() {
   local remote_hash=$(wget -qO- "${website}/dl/sha/${system_name}" | grep "${1}" | perl -e 'if (<> =~ /$1:([a-fA-F\d]{32})/g) {print "$1"} else {print <>}')
   if _devctl_verify_hash "${tar_file_name}" "${remote_hash}"
   then
-    if [[ -d "/opt/devctl" ]]; then
+    if [[ -d "${install_location}/devctl" ]] && [ "$(ls -A ${install_location}/devctl)" ]; then
       /bin/rm -r "${install_location}"/devctl/*
     fi
     tar -zxvf "${tar_file_name}" -C "${install_location}" --keep-newer-files
