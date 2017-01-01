@@ -2,7 +2,7 @@
 set -e
 
 curlsource() {
-    f=$(mktemp -t curlsource)
+    f=$(mktemp -t curlsource-XXXX)
     curl -o "$f" -s -L "$1"
     source "$f"
     rm -f "$f"
