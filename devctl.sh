@@ -78,7 +78,7 @@ _devctl_check_update(){
     _devctl_echo_info "Downloading update"
     {
       _devctl_install_version "${latest_version}"
-    } >/dev/null 2>&1
+    }
     _devctl_check_error $? "Update"
     # shellcheck disable=SC1091
     source "/opt/devctl/devctl.sh"
@@ -133,6 +133,7 @@ _devctl_install_version() {
       /bin/rm -r "${tar_file_name}"
     else
       _devctl_echo_fail "unable to verify sha"
+      return
     fi
   }
   return $?
