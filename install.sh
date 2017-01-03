@@ -54,7 +54,7 @@ _devctl_setup_profile() {
   _devctl_echo_info "added a line to the end of ${rcfile}"
 }
 
-_source_devctl() {
+_devctl_source() {
   _devctl_echo_info "Sourcing devctl"
   source /opt/devctl/devctl.sh
 }
