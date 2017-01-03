@@ -132,7 +132,7 @@ _devctl_install_version() {
       chmod +x "${install_location}/devctl/devctl"
       /bin/rm -r "${tar_file_name}"
     else
-      return
+      _devctl_echo_fail "unable to verify sha"
     fi
   }
   return $?
