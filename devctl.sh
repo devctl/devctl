@@ -128,7 +128,7 @@ _devctl_install_version() {
       if [[ -d "${install_location}/devctl" ]] && [ "$(ls -A ${install_location}/devctl)" ]; then
         /bin/rm -r "${install_location}"/devctl/*
       fi
-      tar -zxvf "${tar_file_name}" -C "${install_location}" --keep-newer-files
+      tar -zxvf "${tar_file_name}" -C "${install_location}/devctl" --keep-newer-files
       chmod +x "${install_location}/devctl/devctl"
       /bin/rm -r "${tar_file_name}"
     else
